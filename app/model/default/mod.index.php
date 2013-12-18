@@ -158,7 +158,7 @@ class mod_index extends inc_mod_default {
 	function get_arrivetime(){
 		//获取cookie中的天和时间
 		$arrive_time_map = cls_config::get("arrive_time" , "meal");
-		$arrive_day_map = array('00' => '今天','01'=>'明天','02'=>'后天');
+		$arrive_day_map = array('00' => '12月20日','01'=>'12月21日','02'=>'12月22日');
 		$time_cookie = cls_obj::get("cls_session")->get_cookie("arrivetime");
 		$time = substr($time_cookie, 2) ;
 		$day = substr($time_cookie, 0, 2);

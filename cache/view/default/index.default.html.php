@@ -1,19 +1,22 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title><?php echo cls_config::get("site_title","sys");?>-店铺管理</title>
+<title><?php echo cls_config::get("site_title","sys");?></title>
 <meta name="keywords" content="<?php echo cls_config::get("keywords","sys");?>"/>
 <meta name="description" content="<?php echo cls_config::get("description","sys");?>"/>
 <link rel="stylesheet" type="text/css" href="/mealOrdering/webcss/common/images/common.css"/>
 <link rel="stylesheet" type="text/css" href="/mealOrdering/webcss/common/images/expand.css"/>
 <link rel="stylesheet" type="text/css" href="/mealOrdering/webcss/default/images/css.css"/>
 <script src="<?php echo cls_config::get("dirpath","base");?>/common.php?app=sys&app_act=web.config&app_ajax=1"></script>
+<script src="/mealOrdering/webcss/common/js/jquery-1.10.2.min.js"></script>
+<script src="/mealOrdering/webcss/common/js/dialog.js"></script>
 <script src="/mealOrdering/webcss/common/js/kj.js"></script>
 <script src="/mealOrdering/webcss/common/js/kj.dialog.js"></script>
 </head>
 <body>
 <?php include cls_resolve::on_resolve('/default\/header')?>
 <div class="main">
+	<img src="/mealOrdering/webcss/default/images/jc_qr.png" style="display:none;" />
 	<div class="right">
 		<?php if(!empty($opentime['cont'])){?>
 		<div class="x_topbg">&nbsp;</div>
@@ -38,7 +41,7 @@
 		<div style="float:left;width:241px" id="id_cart">
 			<div class="x_topbg">&nbsp;</div>
 			<div class="cart_float">
-				<div class="cart_tit">我的饭盒</div>
+				<div class="cart_tit">我的菜单</div>
 				<div class="cart_box">
 					<div class="x_list" id="id_cart_box">
 					</div>
@@ -47,13 +50,13 @@
 					<div style="clear:both;margin-left:8px;">送餐时间</div>
 						<div style="margin:3px 0px 5px 15px;"> 
 							<select id = "id_arriveday">
-								<option value="00" selected="selected">今天</option>
-								<option value="01">明天</option>
-								<option value="02">后天</option>
+								<option value="00" selected="selected">12月20日</option>
+								<option value="01">12月21日</option>
+								<option value="00">12月22日</option>
 							</select>
 							<select  id = "id_arrivetime">
 							<?php if(count($arrive_time)>0){?>
-								<option value="0">您期望送达的时间</option>
+								<option value="0">您期望几点钟送达</option>
 								<?php foreach($arrive_time as $item=>$key){ ?>
 								<option  value="<?php echo $item;?>"><?php echo $key;?></option>
 								<?php }?>
@@ -240,6 +243,16 @@ kj.onload(function(){
 window.onscroll = function(){ 
 	thisjs.cart_position();
 } 
+</script>
+
+<script>
+    $( function() {
+        var dialogIns = new dialog( {
+
+        } );
+
+        dialogIns.show();
+    } );
 </script>
 <?php include cls_resolve::on_resolve('/default\/footer')?>
 </body>

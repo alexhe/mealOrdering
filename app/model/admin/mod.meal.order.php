@@ -230,7 +230,7 @@ class mod_meal_order extends inc_mod_meal {
 		//取店铺送餐时间
 		$arr_return["arrivetime"] = cls_config::get("arrive_time" , "meal");
 		
-		$arrive_day_map = array('00' => '今天','01'=>'明天','02'=>'后天');
+		$arrive_day_map = array('00' => '今天','01'=>'明天','02'=>'后天','04' => '12月21日','05'=>'12月22日','06'=>'12月23日');
 		$time = substr($arr_return['detail']['order_arrive'], 2) ;
 		$day = substr($arr_return['detail']['order_arrive'], 0, 2);
 		$arr_return["day"] = $arr_return["arrivetime"][$time] ;

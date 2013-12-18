@@ -81,6 +81,7 @@ class mod_meal_menu extends inc_mod_meal {
 			}
 			$arr_return["list"][] = $obj_rs;
 		}
+		//print_r($arr_return);
 		$arr_return['pagebtns']   = $this->get_pagebtns($arr_return['pageinfo']);
 		return $arr_return;
 	}
@@ -149,6 +150,7 @@ class mod_meal_menu extends inc_mod_meal {
 			"menu_attribute"  => fun_get::post("menu_attribute"),
 			"menu_mode"  => (int)fun_get::post("menu_mode"),
 			"menu_holiday"  => (int)fun_get::post("menu_holiday"),
+		    "menu_sort"=> (int)fun_get::post("menu_sort")
 		);
 		$arr_fields["menu_weekday"] = '';
 		$arr_fields["menu_date"] = '';

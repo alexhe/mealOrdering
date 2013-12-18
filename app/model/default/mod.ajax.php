@@ -84,6 +84,8 @@ class mod_ajax extends inc_mod_default {
 			"order_beta" => fun_get::post("beta"),
 			"order_pay_method" => fun_get::post("paymethod"),
 		);
+// 		print_r($arr_order);
+// 		exit;
 		$score_mode = (int)cls_config::get("score_mode" , "meal");
 		if($score_mode > 0) $arr_order['order_isaward'] = -1;
 		if(!in_array($arr_order['order_pay_method'] , array('afterpayment' , 'repayment'))) $arr_order['order_state'] = -2;//等待支付
@@ -295,7 +297,7 @@ class mod_ajax extends inc_mod_default {
 				$arr_x = $obj_db->on_exe("update ".cls_config::DB_PRE."meal_menu_today set today_sold=today_sold+'".$num."' where today_menu_id='".$item."' and today_date='".$today_date."' and today_date_period='".$today_date_period."'" . $where_today);
 				$arr_x = $obj_db->on_exe("update ".cls_config::DB_PRE."meal_menu set menu_sold=menu_sold+" . $num . " where menu_id='".$item."'");
 			}else {
-				$num1 = substr_count("," . $menu_ids . "," ,"," . $item . ",");
+				$num1 = substr_count("," . $menu_ids . "," ,"," . $item );
 				$num = $arr_menu['id_'.$item]['menu_num'] - $arr_menu['id_'.$item]['num']+$num1;
 				$arr_x=$obj_db->on_exe("update ".cls_config::DB_PRE."meal_menu set menu_sold_today='".$num."',menu_sold=menu_sold+" . $num1 . ",menu_sold_time='".TIME."' where menu_id='".$item."'");
 			}

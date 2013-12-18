@@ -172,7 +172,7 @@ function setval(s){
 <script src="/mealOrdering/webcss/common/js/kj.pic.js"></script>
 <table class="me_table" id="id_table" cellpadding=0 cellspacing=0><tr><td>
 <div class="header">
-	<div class="x_logo" id="id_login_div"><a href="<?php echo cls_config::get("dirpath","base");?>/" target="_blank"><img src="/mealOrdering/webcss/admin/images/logo.png"></a><br>订&nbsp;&nbsp;&nbsp;&nbsp;餐</div>
+	<div class="x_logo" id="id_login_div"><a href="<?php echo cls_config::get("dirpath","base");?>/" target="_blank"><img src="/mealOrdering/webcss/admin/images/logo.png"></a><br>jiacan.me</div>
 	<div class="x_info a_1" id="id_info_div">
 		<li>
 		<?php if($this_limit->chk_act("help",'index','index')){?>
